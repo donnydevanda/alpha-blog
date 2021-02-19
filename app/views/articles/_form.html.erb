@@ -1,26 +1,29 @@
-<% if @article.errors.any? %>
-  <h2>The following errors prevented the article from being saved</h2>
-  <ul>
-    <% @article.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
-    <% end %>
-  </ul>
-<% end %>
+<div class="container">
+  <%= render 'shared/errors' %>
 
-<%= form_with(model: @article, local: true) do |f| %>
+  <%= form_with(model: @article, local: true) do |f| %>
+    <div class="form-group row">
+      <%= f.label :title, class: "col-2 col-form-label" %>
+      <div class="col-10">
+        <%= f.text_field :title, class: "form-control" %>
+      </div>
 
-  <p>
-    <%= f.label :title %> <br>
-    <%= f.text_field :title %>
-  </p>
+    </div>
 
-  <p>
-    <%= f.label :description %> <br>
-    <%= f.text_area :description %>
-  </p>
+    <div class="form-group row">
+      <%= f.label :description, class: "col-2 col-form-label" %> <br>
+      <div class="col-10">
+        <%= f.text_area :description, rows: "5", class: "form-control" %>
+      </div>
+    </div>
 
-  <p>
-    <%= f.submit %>
-  </p>
+    <div class="form-group row">
+      <%= f.submit class: "btn btn-primary" %>
+    </div>
 
-<% end %>
+    <div class="row">
+      <%= link_to 'Return to article listing', articles_path %>
+    </div>
+
+  <% end %>
+</div>

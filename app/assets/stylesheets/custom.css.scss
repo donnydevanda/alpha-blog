@@ -1,7 +1,13 @@
 @import 'bootstrap/dist/css/bootstrap';
 
-.navbar {
+.navbar{
+  background-color: black !important;
 
-  background-color: #FDF6EA !important;
+  a{
+    color: white !important;
+  }
+}
 
+.nav-link{
+  color: white !important;
 }

@@ -1,8 +1,25 @@
-<h1>Showing article details</h1>
+<div class="row mb-3">
+  <h1>Showing article details</h1>
+</div>
 
-<p><strong>Title: </strong><%= @article.title %></p>
-<p><strong>Description: </strong><%= @article.description %></p>
+<div class="row">
+  <p>XX/XX/XXXX</p>
+</div>
 
-<%= link_to 'Edit', edit_article_path(@article) %> |
-<%= link_to 'Delete', article_path(@article), method: :delete, data: { confirm: "Are you sure?" } %> |
-<%= link_to 'Return to article listing', articles_path %>
+<div class="row">
+  <h5><strong>Title: </strong><%= @article.title %></h5>
+</div>
+
+<div class="row">
+  <h5><strong>Description: </strong><%= @article.description %></h5>
+</div>
+
+<div class="row">
+  <p><strong>By:</strong> Muhammad Donny Devanda</p>
+</div>
+
+<div class="row">
+  <%= link_to 'Edit', edit_article_path(@article) %> -
+  <%= link_to 'Delete', article_path(@article), method: :delete, data: { confirm: "Are you sure?" } %> -
+  <%= link_to 'Return to article listing', articles_path %>
+</div>
