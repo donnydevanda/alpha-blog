@@ -1,0 +1,13 @@
+<div class="row mb-3">
+  <h1><%= @user.username %> profile</h1>
+</div>
+
+<div class="row">
+  <%= gravatar_for @user, size: 200 %>
+</div>
+
+<div class="row mb-3">
+  <h3>Articles List</h3>
+</div>
+
+<%= render 'articles/article' %>
