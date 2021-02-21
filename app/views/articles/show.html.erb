@@ -3,7 +3,7 @@
 </div>
 
 <div class="row">
-  <p>XX/XX/XXXX</p>
+  <%= time_ago_in_words(@article.created_at) %> ago
 </div>
 
 <div class="row">
