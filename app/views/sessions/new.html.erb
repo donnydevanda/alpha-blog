@@ -1,0 +1,34 @@
+<div class="row mb-3">
+  <h1>Login</h1>
+</div>
+
+<div class="row mb-3">
+  <div class="container">
+
+    <%= form_with(scope: :session, url: login_path, local: true) do |f| %>
+
+      <div class="form-group row">
+        <%= f.label :email, class: "col-2 col-form-label" %> <br>
+        <div class="col-10">
+          <%= f.email_field :email, class: "form-control", placeholder: "Enter Email" %>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <%= f.label :password, class: "col-2 col-form-label" %> <br>
+        <div class="col-10">
+          <%= f.password_field :password, class: "form-control", placeholder: "Enter Password" %>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <%= f.submit "Log In", class: "btn btn-primary" %>
+      </div>
+
+      <div class="row">
+        <%= link_to 'Return to article listing', articles_path %>
+      </div>
+
+    <% end %>
+  </div>
+</div>
