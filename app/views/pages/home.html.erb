@@ -2,15 +2,18 @@
   <div class="jumbotron">
     <div class="mx-auto my-5 px-5 py-5 text-center">
       <h1>Welome to Alpha Blog !</h1>
-      <button class="btn btn-primary mx-2">
-        <%= link_to "Sign Up", signup_path, class: "nav-link" %>
-      </button>
-      <button class="btn btn-secondary mx-2">
-        <%= link_to "Log In", login_path, class: "nav-link" %>
-      </button>
-      <button class="btn btn-secondary mx-2">
-        <%= link_to "Log Out", logout_path, class: "nav-link", method: :delete %>
-      </button>
+      <% if logged_in? %>
+        <button class="btn btn-secondary mx-2">
+          <%= link_to "Log Out", logout_path, class: "nav-link", method: :delete %>
+        </button>
+      <% else %>
+        <button class="btn btn-primary mx-2">
+          <%= link_to "Sign Up", signup_path, class: "nav-link" %>
+        </button>
+        <button class="btn btn-secondary mx-2">
+          <%= link_to "Log In", login_path, class: "nav-link" %>
+        </button>
+      <% end %>
     </div>
   </div>
 </div>
