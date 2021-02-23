@@ -9,7 +9,7 @@
       <th>Username</th>
       <th>Email</th>
       <th>Article</th>
-      <th colspan="2">Actions</th>
+      <th colspan="3">Actions</th>
     </tr>
     </thead>
     <tbody>
@@ -21,8 +21,14 @@
         <td><%= user.email %></td>
         <td><%= user.articles.count %></td>
         <td><%= link_to 'View Profile', user_path(user) %></td>
-        <% if logged_in? && user == current_user %>
-        <td><%= link_to 'Edit Profile', edit_user_path(user) %></td>
+        <% if logged_in? %>
+          <% if user == current_user %>
+            <td><%= link_to 'Edit Profile', edit_user_path(user) %></td>
+          <% end %>
+          <% if current_user.admin? %>
+            <td colspan="2"><%= link_to 'Delete User', user_path(user), method: :delete,
+            data: { confirm: "Are you sure want to delete user and assocciated article?" }%></td>
+          <% end %>
         <% end %>
       </tr>
     <% end %>

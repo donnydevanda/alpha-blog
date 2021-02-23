@@ -15,6 +15,14 @@
         <li class="nav-item active">
           <%= link_to "User", users_path, class: "nav-link" %>
         </li>
+        <% if logged_in? %>
+          <li class="nav-item active">
+            <%= link_to current_user.username, user_path(current_user), class: "nav-link" %>
+          </li>
+          <li class="nav-link font-weight-bolder">
+            <%= "(Admin)" if current_user.admin?  %>
+          </li>
+        <% end %>
       </ul>
     </div>
   </div>
