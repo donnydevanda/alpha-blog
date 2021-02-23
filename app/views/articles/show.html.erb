@@ -19,7 +19,9 @@
 </div>
 
 <div class="row">
-  <%= link_to 'Edit', edit_article_path(@article) %> -
-  <%= link_to 'Delete', article_path(@article), method: :delete, data: { confirm: "Are you sure?" } %> -
+  <% if logged_in? && @article.user == current_user %>
+    <%= link_to 'Edit', edit_article_path(@article) %> -
+    <%= link_to 'Delete', article_path(@article), method: :delete, data: { confirm: "Are you sure?" } %> -
+  <% end %>
   <%= link_to 'Return to article listing', articles_path %>
 </div>

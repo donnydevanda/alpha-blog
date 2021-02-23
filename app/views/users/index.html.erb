@@ -21,7 +21,9 @@
         <td><%= user.email %></td>
         <td><%= user.articles.count %></td>
         <td><%= link_to 'View Profile', user_path(user) %></td>
+        <% if logged_in? && user == current_user %>
         <td><%= link_to 'Edit Profile', edit_user_path(user) %></td>
+        <% end %>
       </tr>
     <% end %>
     </tbody>
