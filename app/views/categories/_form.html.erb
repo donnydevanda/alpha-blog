@@ -1,0 +1,24 @@
+<div class="row mb-3">
+  <div class="container">
+    <%= render 'shared/errors', obj: @category %>
+
+    <%= form_with(model: @category, local: true) do |f| %>
+      <div class="form-group row">
+        <%= f.label :name, "Category name", class: "col-2 col-form-label" %>
+        <div class="col-10">
+          <%= f.text_field :name, class: "form-control", placeholder: "Enter a name" %>
+        </div>
+
+      </div>
+
+      <div class="form-group row">
+        <%= f.submit class: "btn btn-primary" %>
+      </div>
+
+      <div class="row">
+        <%= link_to 'Return to article listing', articles_path %>
+      </div>
+
+    <% end %>
+  </div>
+</div>

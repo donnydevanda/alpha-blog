@@ -3,7 +3,7 @@
 </div>
 
 <div class="row">
-  <%= time_ago_in_words(@article.created_at) %> ago
+  <h6><%= time_ago_in_words(@article.created_at) %> ago</h6>
 </div>
 
 <div class="row">
@@ -13,6 +13,12 @@
 <div class="row">
   <h5><strong>Description: </strong><%= @article.description %></h5>
 </div>
+
+<% if @article.categories.any? %>
+  <div class="row">
+    <h6><b>Category:</b> <%= render @article.categories %></h6>
+  </div>
+<% end %>
 
 <div class="row">
   <p><strong>By:</strong> <%= @article.user.username if @article.user %></p>

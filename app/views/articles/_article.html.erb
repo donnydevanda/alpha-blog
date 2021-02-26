@@ -9,6 +9,7 @@
       <th>Title</th>
       <th>Description</th>
       <th>Author</th>
+      <th>Category</th>
       <th colspan="3">Actions</th>
     </tr>
     </thead>
@@ -20,6 +21,11 @@
         <td class="font-italic">
           <% if article.user %>
             <%= link_to article.user.username, user_path(article.user) %>
+          <% end %>
+        </td>
+        <td>
+          <% if article.categories.any? %>
+            <%= render article.categories %>
           <% end %>
         </td>
         <td><%= link_to 'Show', article_path(article) %></td>
